@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Grid from '@mui/material/Grid';
@@ -11,6 +12,7 @@ import { Tags } from '../SideTags/TagsComponent'
 import { fetchPosts } from '../../Redux/slices/PostSlice';
 import { fetchTags } from '../../Redux/slices/PostSlice'
 import { Skeleton } from '@mui/material';
+import TagsSX from '../../themes/TagsSX.js';
 
 export const PostsComponent = () => {
   const dispatch = useDispatch()
@@ -27,7 +29,7 @@ export const PostsComponent = () => {
   console.log(posts)
   return (
     <>
-      <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
+      <Tabs style={{ marginBottom: 15 }} value={0}>
         <Tab label="Новые" />
         <Tab label="Популярные" />
       </Tabs>
@@ -52,7 +54,7 @@ export const PostsComponent = () => {
           ))} 
         </Grid>
          <Grid xs={4} item>
-           <Tags items={tags.items} isLoading={isTagsLoaded} />
+           <Tags items={tags.items} isLoading={isTagsLoaded} sx = {{ TagsSX }}/>
           {/* <CommentsBlock
             items={[
               {

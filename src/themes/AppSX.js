@@ -8,8 +8,7 @@ const AppSX = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    position: {xl: "fixed", lg: "fixed", md: "fixed"},
-    mt: "60px"
+    position: {xl: "fixed", lg: "fixed", md: "fixed"}
   }
   
   export default AppSX;

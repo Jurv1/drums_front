@@ -11,28 +11,28 @@ import { logout, selectAuth } from '../Redux/slices/AuthSlice.js';
 
 
 const Header = (props) => {
-    
+
     const dispatch = useDispatch()
-    const isAuth = useSelector( selectAuth )
+    const isAuth = useSelector(selectAuth)
 
     const onClickLogOut = () => {
         console.log(dispatch)
-        if ( window.confirm('Вы уверены, что хотите выйти из своего аккаунта?') ) { 
+        if (window.confirm('Вы уверены, что хотите выйти из своего аккаунта?')) {
             dispatch(logout())
-            window.localStorage.removeItem("token", )
-         }
+            window.localStorage.removeItem("token",)
+        }
     }
 
     return (
         <Box sx={{ flexGrow: 1, maxWidth: '100%' }}>
-            <AppBar position='fixed' sx = {{ top: "0", left: "0", zIndex: "50" }}>
+            <AppBar position='fixed' sx={{ top: "0", left: "0", zIndex: "50" }}>
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
-                    
+            
                     <MenuComponent />
 
                     <Link to="/" style={{ textDecoration: 'none', }}>
                         <Box sx={{ display: { xs: "none", sm: "none", md: "inline", lg: "inline", xl: "inline" } }}>
-                            <Typography variant="h6" component="div"  sx={{ color: "white", }}>
+                            <Typography variant="h6" component="div" sx={{ color: "white", }}>
                                 OnlyDrums
                             </Typography>
                         </Box>
@@ -40,13 +40,15 @@ const Header = (props) => {
 
                     {isAuth ? (
                         <>
-                            <Link href="/auth/login">
-                                <Button color="inherit" sx={{ mr: 2, "&:hover": { color: 'red' } }}>
-                                    Login
-                                </Button>
-                            </Link>
+                            <Box>
+                                <Link href="/auth/login" style={ {textDecoration: "none"} }>
+                                    <Button color="inherit" sx={{ color: "white", mr: 2, "&:hover": { color: 'red' } }}>
+                                        Поделиться открытием
+                                    </Button>
+                                </Link>
 
-                            <Button onClick={onClickLogOut} sx={{ color: 'black', backgroundColor: 'whitesmoke', "&:hover": { color: 'red' } }} > Выйти </Button>
+                                <Button onClick={onClickLogOut} sx={{ color: 'black', backgroundColor: 'whitesmoke', "&:hover": { color: 'orange' } }} > Выйти </Button>
+                            </Box>
                         </>
                     ) : (
                         <>

@@ -9,11 +9,12 @@ import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 
 import { SideBlock } from "./SideTagsComponent";
+import TagsSX from "../../themes/TagsSX";
 
 export const Tags = ({ items, isLoading = true }) => {
   return (
-    <SideBlock title="Тэги">
-      <List>
+    <SideBlock component = "div" title="Тэги" sx = {{ paddingLeft: "25px" }}>
+      <List sx = {{ display: "inline-block" }}>
         {(isLoading ? [...Array(5)] : items).map((name, i) => (
           <a
             style={{ textDecoration: "none", color: "black" }}
